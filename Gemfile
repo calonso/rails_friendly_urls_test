@@ -25,6 +25,8 @@ gem 'rails_friendly_urls', github: 'calonso/rails_friendly_urls'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'puma'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
