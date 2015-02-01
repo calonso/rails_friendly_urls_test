@@ -1,0 +1,41 @@
+<%= form_tag("/articles") do %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @friendly_url && @friendly_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@friendly_url.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @friendly_url.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= label_tag :article_title %><br>
+    <%= text_field_tag 'article[title]' %>
+  </div>
+  <div class="field">
+    <%= label_tag :article_content %><br>
+    <%= text_area_tag 'article[content]' %>
+  </div>
+  <div class="field">
+    <%= label_tag :friendly_url_slug %><br>
+    <%= text_field_tag 'friendly_url[slug]' %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Save" %>
+  </div>
+<% end %>
